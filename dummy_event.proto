@@ -1,0 +1,55 @@
+// 我随便找了个 json 直接转成了 proto 结构
+// 然后我会写两个结构分别以 json 和 proto 处理
+// 去对比它们的 rps 和传输的数据量
+// 和此文件对应的 json 文件是 dummy_event.json5
+// 不用理解 json 的含义只是随便找的，不能太短是为了尽量模拟实际情况
+
+syntax = "proto3";
+
+message Event {
+    string event_name = 1;
+    int64 time = 2;
+    int64 server_time = 3;
+    User user = 4;
+    Common common = 5;
+    Payload payload = 6;
+
+    message User {
+        string user_id = 1;
+        string web_id = 2;
+        string ssid = 3;
+    }
+
+    message Common {
+        string app_version = 1;
+        string device_model = 2;
+        string language = 3;
+        string resolution = 4;
+        string platform = 5;
+        string loc_country_id = 6;
+        string loc_province_id = 7;
+        string loc_city_id = 8;
+        string client_ip = 9;
+        string os_version = 10;
+        string network_carrier = 11;
+        string device_brand = 12;
+        string os_name = 13;
+        string network_type = 14;
+        repeated string ab_version = 15;
+        string referer = 16;
+        string module_name = 17;
+    }
+
+    message Payload {
+        repeated Goods goods = 1;
+        string order_id = 2;
+
+        message Goods {
+            string id = 1;
+        }
+    }
+}
+
+message EventList {
+    repeated Event events = 1;
+}

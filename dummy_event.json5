@@ -1,0 +1,67 @@
+// 我随便找了个 json 直接转成了 proto 结构
+// 然后我会写两个结构分别以 json 和 proto 处理
+// 去对比它们的 rps 和传输的数据量
+// 和此文件对应的 proto 文件是 dummy_event.proto
+// 不用理解 json 的含义只是随便找的，不能太短是为了尽量模拟实际情况
+[
+    {
+        "event_name": "$app_launch",
+        "time": 1711956608, // 或 2021-01-01 12:00:00 + 8:00 这种格式
+        // 服务端加的，客户端无需关心
+        "server_time": 1711956313,
+        // 用户属性
+        "user": {
+            "user_id": "2543289444",
+            "web_id": "7346890586030353664",
+            // 服务端加的，客户端无需关心
+            "ssid": "1730132123846764706"
+        },
+        // 公共属性
+        "common": {
+            // app、小程序版本
+            "app_version": "1.96",
+            // 设备型号
+            "device_model": "mi 4w",
+            // 语言
+            "language": "en_us",
+            // 分辨率
+            "resolution": "412*732",
+            // 平台
+            "platform": "android",
+            // 所在国家，代码
+            "loc_country_id": "cn",
+            // 所在省份
+            "loc_province_id": "河南",
+            // 所在城市
+            "loc_city_id": "郑州",
+            // 客户端IP
+            "client_ip": "120.218.71.204",
+            // 操作系统版本
+            "os_version": "2.3.4",
+            // 网络运营商
+            "network_carrier": "Verizon",
+            // 设备品牌
+            "device_brand": "小米",
+            // 操作系统名称
+            "os_name": "android",
+            // 网络类型
+            "network_type": "WIFI",
+            // AB测试版本， 暂时不用管
+            "ab_version": [],
+            // 上一页
+            "referer": "pages/index/market",
+            // 模块名称
+            "module_name": "旅游",
+        },
+        // 事件属性
+        "payload": {
+            // 只是举个栗子
+            "goods": [
+                {
+                    "id": "5RP7996481"
+                }
+            ],
+            "order_id": "12165457587j9k04443343434"
+        },
+    }
+]

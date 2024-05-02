@@ -1,4 +1,4 @@
-// 我随便找了个 json 直接转成了 proto 结构
+// 随便找了个 json 直接转成了 proto 结构
 // 然后我会写两个结构分别以 json 和 proto 处理
 // 去对比它们的 rps 和传输的数据量
 // 和此文件对应的 proto 文件是 dummy_event.proto

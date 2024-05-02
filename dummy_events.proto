@@ -1,10 +1,14 @@
-// 我随便找了个 json 直接转成了 proto 结构
+// 随便找了个 json 直接转成了 proto 结构
 // 然后我会写两个结构分别以 json 和 proto 处理
 // 去对比它们的 rps 和传输的数据量
 // 和此文件对应的 json 文件是 dummy_event.json5
 // 不用理解 json 的含义只是随便找的，不能太短是为了尽量模拟实际情况
 
 syntax = "proto3";
+
+// 这行是 PHP 这边指定 namespace / package 用的，其它端可以删去
+option php_namespace = "App\\Protos";
+option php_metadata_namespace = "App\\Protos\\Metadata";
 
 message Event {
     string event_name = 1;

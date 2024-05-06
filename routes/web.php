@@ -5,6 +5,7 @@ use App\Protos\Event\Common;
 use App\Protos\Event\Payload;
 use App\Protos\Event\Payload\Goods;
 use App\Protos\Event\User;
+use App\Protos\EventList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -29,7 +30,7 @@ Route::post('protobuf', function (Request $request) {
 
     $eventProto = (new Event());
     $eventProto->mergeFromString($binary);
-    return response()->json($eventProto->serializeToJsonString());
+    return response()->json(json_decode($eventProto->serializeToJsonString()));
 })->withoutMiddleware('web');
 
 Route::get('generate', function () {

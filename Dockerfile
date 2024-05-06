@@ -72,6 +72,7 @@ RUN apt-get update; \
   rdkafka \
   memcached \
   igbinary \
+  protobuf \
   ldap \
   swoole \
   && apt-get -y autoremove \

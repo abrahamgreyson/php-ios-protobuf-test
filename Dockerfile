@@ -27,7 +27,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
   USER=octane \
   ROOT=/var/www/html \
   COMPOSER_FUND=0 \
-  COMPOSER_MAX_PARALLEL_HTTP=24
+  COMPOSER_MAX_PARALLEL_HTTP=24 \
+  WORKER_COMMAND="php artisan queue:work" \
 
 # 设置工作目录
 WORKDIR ${ROOT}

@@ -13,10 +13,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/json', function () {
-    return view('welcome');
-});
 
+// http 提交上来的 json 原样返回
+Route::post('/json', function (Request $request) {
+    return response()->json($request->all());
+})->withoutMiddleware('web');
+
+// http 提交上来的 proto 解包后返回 json
 Route::post('protobuf', function (Request $request) {
     $binary = match(true) {
         $request->hasFile('binary') => $request->file('binary')->getContent(),
@@ -26,10 +29,10 @@ Route::post('protobuf', function (Request $request) {
 
     $eventProto = (new Event());
     $eventProto->mergeFromString($binary);
-    return ($eventProto->serializeToJsonString());
+    return response()->json($eventProto->serializeToJsonString());
 })->withoutMiddleware('web');
 
-Route::get('protobuf', function () {
+Route::get('generate', function () {
     // Create a User object
     $userProto = (new User())
         ->setUserId(Str::uuid()->toString())
@@ -71,6 +74,6 @@ Route::get('protobuf', function () {
     $userSerialized = $eventProto->serializeToString();
 
     // Set response headers for Protobuf
-    return response($userSerialized)
-        ->header('Content-Type', 'application/protobuf');
+    return response(base64_encode($userSerialized));
+//        ->header('Content-Type', 'application/protobuf');
 });

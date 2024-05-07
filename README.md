@@ -8,6 +8,10 @@
 - https://github.com/protocolbuffers/protobuf 各个语言的运行时库
 - https://protobuf.dev/programming-guides/dos-donts/ 最佳实践
 
+###### proto 模板
+
+- dummy_event.proto
+
 ###### 客户端接入文档
 https://console-docs.apipost.cn/preview/55b56dff48c6f99e/cbeb85ae0cc50ea6
 

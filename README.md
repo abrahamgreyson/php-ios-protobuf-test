@@ -13,7 +13,12 @@
 - dummy_event.proto
 
 ###### 客户端接入文档
-https://console-docs.apipost.cn/preview/55b56dff48c6f99e/cbeb85ae0cc50ea6
+
+- 端点
+  - ws://192.168.1.137:18081/app/0fv5zyndfzkszhp3bpf0
+  - http://192.168.1.137:18001
+  
+- [Apipost](https://console-docs.apipost.cn/preview/55b56dff48c6f99e/cbeb85ae0cc50ea6)
 
 ###### Benchmark
 

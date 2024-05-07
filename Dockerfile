@@ -145,6 +145,8 @@ RUN composer install \
   && composer clear-cache \
   && php artisan storage:link
 
+RUN php artisan migrate --isolated --force
+
 # 设置 start-container 脚本的执行权限
 RUN chmod +x /usr/local/bin/start-container
 

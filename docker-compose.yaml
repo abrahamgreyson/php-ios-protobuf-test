@@ -1,0 +1,13 @@
+version: '3'
+services:
+  octane:
+    image: octane
+    restart: always
+    ports:
+      - 18001:8000
+      - 18081:8080
+  queue:
+    image: octane
+    restart: always
+    environment:
+      - WORKER_COMMAND=php /var/www/html/artisan queue:start

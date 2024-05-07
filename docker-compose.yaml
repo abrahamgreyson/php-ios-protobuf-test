@@ -1,6 +1,6 @@
 version: '3'
 services:
-  octane:
+  php-ios-protobuf:
     image: octane
     restart: always
     ports:

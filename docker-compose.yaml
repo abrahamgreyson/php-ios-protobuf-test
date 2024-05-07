@@ -4,10 +4,11 @@ services:
     image: octane
     restart: always
     ports:
-      - 18001:8000
-      - 18081:8080
+      - "18001:8000"
+      - "18081:8080"
   queue:
     image: octane
     restart: always
     environment:
+      - CONTAINER_MODE=worker
       - WORKER_COMMAND=php /var/www/html/artisan queue:start

@@ -6,5 +6,3 @@ services:
     ports:
       - "18001:80"
       - "18081:8080"
-    environment:
-      - WORKER_COMMAND=php /var/www/html/artisan queue:work

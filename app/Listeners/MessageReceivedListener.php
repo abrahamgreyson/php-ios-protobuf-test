@@ -27,9 +27,6 @@ class MessageReceivedListener
         $event = new Event();
         $event->mergeFromString(base64_decode($payload));
         $json = json_decode($event->serializeToJsonString());
-        broadcast(new SendMessageEvent([
-            'json' => $json,
-            'title' => '你传上来的 base64 已经解为 proto，并转化成了 json 回显给你'
-        ]))->toOthers();
+        broadcast(new SendMessageEvent($json))->toOthers();
     }
 }

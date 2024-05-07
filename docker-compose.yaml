@@ -11,4 +11,4 @@ services:
     restart: always
     environment:
       - CONTAINER_MODE=worker
-      - WORKER_COMMAND=php /var/www/html/artisan queue:start
+      - WORKER_COMMAND=php /var/www/html/artisan queue:work

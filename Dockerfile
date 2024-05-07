@@ -128,6 +128,9 @@ RUN mkdir -p \
   storage/logs \
   bootstrap/cache && chmod -R a+rw storage
 
+# add sqlite file
+RUN touch ./database/database.sqlite
+
 # 复制 supervisord 配置文件和 PHP 配置文件到当前镜像
 COPY --chown=${USER}:${USER} deployment/supervisord.*.conf /etc/supervisor/conf.d/
 COPY --chown=${USER}:${USER} deployment/php.ini ${PHP_INI_DIR}/conf.d/99-octane.ini

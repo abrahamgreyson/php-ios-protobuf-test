@@ -26,7 +26,7 @@ class MessageReceivedListener
 //        Log::info('Message received: ' . $payload);
         $event = new Event();
         $event->mergeFromString(base64_decode($payload));
-        $json = json_decode($event->serializeToJsonString());
+        $json = json_decode($event->serializeToJsonString(), true);
         broadcast(new SendMessageEvent($json))->toOthers();
     }
 }
